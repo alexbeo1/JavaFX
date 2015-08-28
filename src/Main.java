@@ -23,7 +23,10 @@ public class Main extends Application{
 
         window = primaryStage;
         button = new Button("Нажми меня");
-        button.setOnAction(e -> AlertBox.display("Внимание", "Возникла ошибка"));
+        button.setOnAction(e -> {
+            boolean result = ConfirmBox.display("Предупреждение", "Вы хотите выйти из программы?");
+            System.out.println(result);
+        });
 
 
         StackPane layout = new StackPane();
