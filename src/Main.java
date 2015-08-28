@@ -40,7 +40,7 @@ public class Main extends Application{
         Button button2 = new Button("Возврат на сцену 1");
         button2.setOnAction(event -> window.setScene(scene1));
 
-        /*Создаем второй слой*/
+        /*Готовим второй слой для сцены*/
         StackPane layout2 = new StackPane();
         layout2.getChildren().add(button2);
         scene2 = new Scene(layout2,600,300);
