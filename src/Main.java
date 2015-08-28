@@ -1,6 +1,4 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -29,16 +27,7 @@ public class Main extends Application{
         /*Устанавливаем название кнопки*/
         button.setText("Старт");
         /*Этот метод связывает кнопку с обработчиком событий*/
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-                if (event.getSource() == button){
-                    System.out.println("Измененное управление событиями");
-                }
-
-            }
-        });
+        button.setOnAction(event -> System.out.println("Измененное управление событиями"));
 
         /*Создаем  экземпляр класса StackPane который служит для создания стэка элементов  */
         StackPane layot = new StackPane();
