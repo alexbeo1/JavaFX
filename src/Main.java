@@ -1,7 +1,9 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -11,7 +13,8 @@ import javafx.stage.Stage;
  */
 public class Main extends Application{
 
-    Button button;
+    Stage window;
+    Scene scene1, scene2;
 
     public static void main(String[] args) {
         launch(args);
@@ -20,26 +23,37 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        /*Задаем заголовок главного окна в подмостках сцены*/
-        primaryStage.setTitle("Главное окно");
-        /*Создаем экземляр класса Button и присваиваем переменной button*/
-        button = new Button();
-        /*Устанавливаем название кнопки*/
-        button.setText("Старт");
-        /*Этот метод связывает кнопку с обработчиком событий*/
-        button.setOnAction(event -> System.out.println("Измененное управление событиями"));
+        window = primaryStage;
+        Label label1 = new Label("Добро пожаловать в первую сцену!");
+        Button button1 = new Button("Переход на сцену 2");
+        button1.setOnAction(event -> window.setScene(scene2));
 
-        /*Создаем  экземпляр класса StackPane который служит для создания стэка элементов  */
-        StackPane layot = new StackPane();
-        /*Добавляем элемент button в стэк layot*/
-        layot.getChildren().add(button);
+        /*Создаем стэк выходной слой 1*/
+        VBox layout1 = new VBox(20);
+        /*Помещаем в него все элементы*/
+        layout1.getChildren().addAll(label1, button1);
 
-        /*Создаем новую сцену и вставляем в нее кнопку, а также задаем размеры окна*/
-        Scene scene = new Scene(layot, 300, 250);
-        /*Размещаем сцену в наших подмостках primaryStage*/
-        primaryStage.setScene(scene);
-        /*Выводим созданное творение на экран*/
-        primaryStage.show();
+        /*Создаем сцену и размещаем в нее слой с элементами и устанавливаем размер*/
+        scene1 = new Scene(layout1, 200, 200);
+
+        /*Создаем еще одну кнопку с монитором управления событиями*/
+        Button button2 = new Button("Возврат на сцену 1");
+        button2.setOnAction(event -> window.setScene(scene1));
+
+        /*Создаем второй слой*/
+        StackPane layout2 = new StackPane();
+        layout2.getChildren().add(button2);
+        scene2 = new Scene(layout2,600,300);
+
+        window.setScene(scene1);
+        window.setTitle("Окно программы");
+        window.show();
+
+
+
+
+
+
     }
 
 }
