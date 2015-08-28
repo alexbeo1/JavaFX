@@ -28,6 +28,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         button = new Button();
         /*Устанавливаем название кнопки*/
         button.setText("Старт");
+        /*Этот метод связывает кнопку с обработчиком событий*/
         button.setOnAction(this);
 
         /*Создаем  экземпляр класса StackPane который служит для создания стэка элементов  */
