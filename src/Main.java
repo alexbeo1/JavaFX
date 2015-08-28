@@ -19,16 +19,24 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Главное окно");
 
+        /*Задаем заголовок главного окна в подмостках сцены*/
+        primaryStage.setTitle("Главное окно");
+        /*Создаем экземляр класса Button и присваиваем переменной button*/
         button = new Button();
+        /*Устанавливаем название кнопки*/
         button.setText("Старт");
 
+        /*Создаем  экземпляр класса StackPane который служит для создания стэка элементов  */
         StackPane layot = new StackPane();
+        /*Добавляем элемент button в стэк layot*/
         layot.getChildren().add(button);
 
+        /*Создаем новую сцену и вставляем в нее кнопку, а также задаем размеры окна*/
         Scene scene = new Scene(layot, 300, 250);
+        /*Размещаем сцену в наших подмостках primaryStage*/
         primaryStage.setScene(scene);
+        /*Выводим созданное творение на экран*/
         primaryStage.show();
     }
 }
