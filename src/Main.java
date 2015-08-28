@@ -16,7 +16,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+/*Переопределяем метод start класса Application*/
     @Override
     public void start(Stage primaryStage) throws Exception {
 
