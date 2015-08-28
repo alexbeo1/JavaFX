@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -9,7 +11,7 @@ import javafx.stage.Stage;
  * Александр Козлов
  * 28.08.2015.
  */
-public class Main extends Application {
+public class Main extends Application implements EventHandler<ActionEvent> {
 
     Button button;
 
@@ -26,6 +28,7 @@ public class Main extends Application {
         button = new Button();
         /*Устанавливаем название кнопки*/
         button.setText("Старт");
+        button.setOnAction(this);
 
         /*Создаем  экземпляр класса StackPane который служит для создания стэка элементов  */
         StackPane layot = new StackPane();
@@ -38,5 +41,16 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         /*Выводим созданное творение на экран*/
         primaryStage.show();
+    }
+
+    /*Монитор событий сцены переписываем метод интерфейса EventHandler */
+    @Override
+    public void handle(ActionEvent event) {
+
+        /*Проверяем, если событие пришло от кнопки выводим на консоль сообщение*/
+        if (event.getSource() == button){
+            System.out.println("Нажата кнопка Старт");
+        }
+
     }
 }
